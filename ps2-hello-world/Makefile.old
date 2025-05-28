@@ -1,0 +1,36 @@
+# Makefile - Hello World for PS2
+
+# 1) Where PS2SDK lives inside the container 
+PS2SDK ?= /usr/local/ps2sdk
+
+# 2) Cross-compiler driver 
+CC := $(PS2SDK)/bin/ee-gcc
+
+# 3) Include paths for EE (emotion engine) and common headers 
+CFLAGS += -I$(PS2SDK)/ee/include -I$(PS2SDK)/common/include -02
+
+# 4) Linker flags: look in the EE libs dir, link kernel and RPC stubs and libc 
+LDFLAGS += -L$(PS2SDK)/ee/lib -lkernel -lsifrpc -lc -lm
+
+
+# Source, build dir, and output ELF 
+SRC = src/hello.c
+BUILD = build
+TARGET = $(BUILD)/hello.elf
+
+.PHONY: all clean 
+
+all: $(TARGET)
+
+# Make sure the build dir exists
+$(BUILD): 
+	mkdir -p $@
+
+# Compile + link in one step 
+$(TARGET): $(SRC) | $(BUILD) 
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
+	@echo "Built $(TARGET)"
+
+clean:
+	rm -rf $(BUILD)
+	@echo "Cleaned build directory"
