@@ -1,3 +1,0 @@
-/workspace/ps2-rotating-triangle/build/CMakeFiles/rotating_triangle.elf.dir
-/workspace/ps2-rotating-triangle/build/CMakeFiles/edit_cache.dir
-/workspace/ps2-rotating-triangle/build/CMakeFiles/rebuild_cache.dir

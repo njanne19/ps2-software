@@ -1,0 +1,3 @@
+/workspace/ps2-basic/build/CMakeFiles/basic.elf.dir
+/workspace/ps2-basic/build/CMakeFiles/edit_cache.dir
+/workspace/ps2-basic/build/CMakeFiles/rebuild_cache.dir

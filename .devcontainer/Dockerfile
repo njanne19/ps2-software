@@ -10,17 +10,13 @@ RUN apk update && apk add --no-cache \
       git \
       build-base
 
-# # Clone, build, install gsKit into $PS2DEV
-# RUN cd $PS2DEV \
-#     && git clone https://github.com/ps2dev/gsKit.git \
-#     && mkdir -p gsKit/build \
-#     && cd gsKit/build \
-#     && cmake \
-#       -DCMAKE_TOOLCHAIN_FILE=$PS2SDK/ps2dev.cmake \
-#       -DCMAKE_INSTALL_PREFIX=$PS2DEV \
-#       .. \
-#     && cmake --build . --target install \
-#     && rm -rf $PS2DEV/gsKit/build
-      
-# Use default user (root) unless you know a specific user exists
+# Clone PS2Link into $PS2DEV/ps2link and build it immediately -- for uploading programs to your PS2 over ethernet. 
+RUN git clone https://github.com/ps2dev/ps2link.git $PS2DEV/ps2link && \ 
+      cd $PS2DEV/ps2link && \
+      make clean all 
+
+# Symlink into /usr/local/bin so "ps2client" "fsclient" works everywhere 
+RUN ln -s $PS2DEV/bin/ps2client /usr/local/bin/ps2client
+RUN ln -s $PS2DEV/bin/fsclient /usr/local/bin/fsclient
+
 WORKDIR /workspace

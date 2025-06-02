@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/workspace/ps2-basic/build",
+  "command": "/usr/local/ps2dev/ee/bin/mips64r5900el-ps2-elf-gcc  -I/usr/local/ps2dev/gskit/include -I/usr/local/ps2dev/dmakit/include -I/usr/local/ps2dev/ps2sdk/ee/include -I/usr/local/ps2dev/ps2sdk/common/include -I/usr/local/ps2dev/gsKit/include -I/usr/local/ps2dev/ps2sdk/ports/include -D_EE -DPS2 -D__PS2__ -O2 -G0 -O3 -DNDEBUG -o CMakeFiles/basic.elf.dir/src/main.c.obj -c /workspace/ps2-basic/src/main.c",
+  "file": "/workspace/ps2-basic/src/main.c",
+  "output": "CMakeFiles/basic.elf.dir/src/main.c.obj"
+}
+]
